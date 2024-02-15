@@ -1,18 +1,21 @@
-const express = require('express');
-const yaml = require('yamljs');
-const swaggerUi = require('swagger-ui-express');
+import express, { Request, Response } from 'express';
+import yaml from 'yamljs';
+import swaggerUi from 'swagger-ui-express';
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 // Load Swagger definition from YAML file
-const swaggerDefinition = yaml.load('swagger.yaml');
+import path from 'path';
+
+const swaggerDefinition = yaml.load(path.join(__dirname, 'swagger.yaml'));
+
 
 // Serve Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDefinition));
 
 // Define your API routes
-app.get('/hello', (req, res) => {
+app.get('/hello', (req:any, res:any) => {
   res.json({ message: 'Hello, world!' });
 });
 
