@@ -1,0 +1,8 @@
+# Utilizamos la imagen oficial de MySQL
+FROM mysql:latest
+
+# Variables de entorno para la configuración
+ENV MYSQL_ROOT_PASSWORD salamander1234
+ENV MYSQL_DATABASE shop
+ENV MYSQL_USER salamander
+ENV MYSQL_PASSWORD salamander1234

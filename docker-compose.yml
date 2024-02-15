@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  node-app:
+    build:
+      context: ./mysql
+      dockerfile: DockerFile
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mysql-db
+    networks:
+      - app-network
+
+  mysql-db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: salamander1234
+      MYSQL_DATABASE: shop
+      MYSQL_USER: salamander
+      MYSQL_PASSWORD: salamander
+    ports:
+      - "3306:3306"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

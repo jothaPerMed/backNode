@@ -7,6 +7,8 @@ npm install typescript@latest --save-dev
 npm install copyfiles --save-dev
 npx tsc
 
+docker-compose up
+
 <!-- Running -->
 npm start
 node dist/server.js
